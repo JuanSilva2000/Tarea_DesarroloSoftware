@@ -64,6 +64,18 @@ end
 
 # Parte 3 -------------------------------------------
 
-#class BookInStock
-  # COMPLETA TU CODIGO
-#end
+class BookInStock
+  def initialize(isbn,price)
+    if isbn.empty? || price <=0
+      raise ArgumentError,'Invalid value'
+    end
+    @isbn = isbn
+    @price = price
+  end
+
+  def price_as_string
+    "$#{format("%.2f", @price.to_f)}" #Especifica que debe imprimirse con 2 decimales
+  end
+
+  attr_accessor :isbn, :price
+end
