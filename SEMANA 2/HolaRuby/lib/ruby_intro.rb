@@ -36,13 +36,31 @@ def hello(name)
   "Hello, #{name}"
 end
 
-#def starts_with_consonant? s
-  # COMPLETA TU CODIGO
-#end
+def starts_with_consonant? s
+  if s.length == 0 or !/[a-zA-Z]/.match? s[0]
+    return false
+  end
 
-#def binary_multiple_of_4? s
-  # COMPLETA TU CODIGO
-#end
+  vowels = %w[a e i o u]
+
+  b = vowels.include? s[0].downcase
+  !b
+end
+
+def binary_multiple_of_4? s
+  if s.is_a?(String)
+    return false if s == ''
+    return false if /[a-zA-z]/.match? s
+
+    if s.to_i(2) % 4 == 0
+      return true
+    end
+
+    return false
+  end
+
+  'Input must be a string'
+end
 
 # Parte 3 -------------------------------------------
 
